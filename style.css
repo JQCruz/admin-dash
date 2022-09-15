@@ -1,28 +1,179 @@
+html{
+    --background-color-content-containers:rgb(167, 167, 233);
+    ;
+}
 
+body{
+    margin: 0px;
+}
 
 .container{
     display: grid;
     grid-template: 1fr 6fr/ 1fr 5fr;
 }
 
+p{
+    margin: 0px 0px 0px 0px;
+}
+
+#profilePictureSmall{
+    width: 70px;
+    height: 80%;
+}
+
 .dashboard{
     grid-column: 1/2;
+    columns: black;
     grid-row: 1/3;
-    background-color: blue;
+    width: max(194px, 100%);
+    background-color: rgb(167, 167, 233);
     display: grid;
     align-items: center;
-    justify-items: center;
+    justify-items: start;
     gap: 10px;
-    grid-template: 2fr repeat(11, min(1fr, 40px)) / 1fr 5fr;
+    grid-template: 5fr repeat(5, 4fr) 2fr repeat(3, 4fr) 20fr/ 1fr;
     font-size: 1rem;
+    grid-template-areas: 
+    "home"
+    "profile"
+    "messages"
+    "history"
+    "tasks"
+    "communities"
+    "."
+    "settings"
+    "support"
+    "privacy";
+}
+
+.dashTabs{
+    margin-left: 20px;
+    font-size: 1.4rem;
+}
+.dashText{
+    margin-left: 8px;
+}
+#settingsTab{
+    grid-area: settings;
+}
+
+#supportTab{
+    grid-area: support;
+}
+
+#privacyTab{
+        grid-area: privacy;
+    }
+
+#home{
+    font-size: 2rem;
+}
+
+#headerSearch{
+    justify-items: center;
+    align-items: center;
+    display: flex;
+    grid-area: "headerSearch";
+}
+
+#usernameBox{
+    grid-area: "usernameBox";
+    margin-right: 30px;
+    align-items: center;
+    gap: 10px;
+}
+
+#helloBox{
+    grid-area: "helloBox";
+    display: grid;
+    grid-template-columns: 3fr 10fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: "profileLarge smallHello"
+    "profileLarge largeHello";
+}
+
+#headerButtons{
+    grid-area: "headerButtons";
+    display: flex;
+    gap: 15%;
+    justify-content: center;
+    align-items: center;
+}
+
+button{
+    background-color: rgb(167, 167, 233);
+    border-radius: 20px;
+    border-style: none;
+    transition: 0.5s;
+    font-size: 1rem;
+    padding: 10px 20px;
+
+}
+
+button:hover{
+    scale: 1.1;
+}
+
+#usernameBox{
+    display: flex;
+    justify-content: end;
+}
+
+#searchImage{
+    margin-left: 50px;
+}
+
+#smallHelloText{
+    grid-area: smallHello;
+    align-items: flex-end;
+    display: flex;
+    height: 100%;
+    margin: 0px;
+    font-size: .8rem;
+}
+
+#largeHelloText{
+    grid-area: largeHello;
+    display: flex;
+    align-items: flex-start;
+    height: 100%;
+    margin: 0px;
+    margin-top: 5px;
+    font-size: 2rem;
+}
+
+#smallHelloText, #largeHelloText{
+    margin-left: 20px;
+}
+
+#profilePictureLarge{
+    width: 70%;
+    grid-area: 1/1/3/2;
+    height: 80%;
+    margin-right: 20px;
+}
+
+.pictureWrapper{
+    grid-area: 1/1/3/2;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+
+p#username{
+    margin-right: 20px;
 }
 
 .headerContent{
     grid-column: 2/3;
     grid-row: 1/2;
-    background-color: aliceblue;
+    background-color: rgb(255, 255, 255);
     display: grid;
-    grid-template: 1fr 2fr/ 7fr 1fr;
+    grid-template: 1fr 2fr/ 2fr 1fr;
+    grid-template-areas: 
+    "headerSearch usernameBox"
+    "helloBox headerButtons";
+    box-shadow: 5px 5px 5px rgb(214, 13, 13);
 }
 
 /* Grid display
@@ -30,54 +181,158 @@
     2 Rows: equal height    
 */
 .projectSection{
+    gap: 30px;
     display: grid;
-    background-color: grey;
+    background-color: rgb(232, 232, 241);
     grid-column: 2/3;
     grid-row: 2/3;
     justify-items: center;
-    grid-template: 1fr 1fr/ 4fr 1fr; 
+    grid-template: 1fr 1fr/ 4fr minmax(250px, 1fr); 
+    height: 100%;
+    box-shadow: inset 0px 4px 5px rgba(128, 128, 128, .4);
 }
 
+input[type="search"]{
+    margin: 0px;
+    padding: 0px;
+    width: 70%;
+}
+
+#notification{
+    width: 20px;    
+    height: 20px;
+}
 
 .dashTabs{
     display: flex;
+    align-items: center;
 }
 
 .dashImage{
     margin-right: 10px;
-    max-width: 50%;
-    max-height: 50%;
+    width: 20px;
+    height: 20px;
+    align-items: center;
 }
 
 .card{
     background-color: white;
-    width: 200px;
+    width: 90%;
+    height: 90%;
+    border-radius: 20px;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    border-left-style: solid;
+    border-left-color: rgb(81, 81, 231);
+    border-left-width: 2px;
+    transition: 0.4s ;
+    box-shadow: 4px 4px 5px rgba(128, 128, 128, .4);
+
 }
+
+.card:hover{
+    scale: 1.1;
+}
+
 
 .projectContainer{
     grid-area: 1/1/3/2;
+    margin-left: 40px;
     display: grid;
-    grid-template-rows: 1fr/8fr;
+    justify-items: center;
+    grid-template-rows: 1fr 8fr;
 
+}
+
+.projectHeader, .projectContent{
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 100%;
+    /* word-break: break-all; */
+    margin-left: 6px;
+    margin-right: 6px;
+}
+
+
+.projectContent{
+    height: 75%;
+    color: grey;
+    align-self: center;
+    margin-top: 20px;
+}
+
+
+.projectHeader{
+    font-weight: bold;
+    font-size: 1.2rem;
 }
 
 .announcementContainer{
     grid-area: 1/2/2/3;
+    display: grid;
+    grid-template-rows: 1fr 8fr;
+    width: 100%;
+    /* background-color: var(--background-color-content-containers); */
+    margin-top: 40px;
+    
+}
+
+.announcementCards{
+    display: grid;
+    margin-right: 20px;
+    grid-template-rows: repeat(3, 1fr);
+    border-radius: 20px;
+    background-color: white;
+    justify-content: center;
+    box-shadow: 4px 4px 5px rgba(128, 128, 128, .4);
+
+}
+
+.announcementCard{
+    width: 40%;
+    gap: 10px;
+    height: 60%;
+    background-color: white;
 }
 
 .trendingContainer{
     grid-area: 2/2/3/3;
+    grid-template-rows: 1fr 8fr;
+    width: 100%;
+    display: grid;
+    grid-template-rows: 1fr 8fr;
+    margin-top: 20px;
+}
+
+.trendingCards{
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    background-color: white;
+    box-shadow: 4px 4px 5px rgba(128, 128, 128, .4);
+    margin-right: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    justify-content: center;
+
+}
+
+.trendingCard{
+    width: 80%;
+    height: 90%;
+    background-color: white;
 }
 
 #projectCards{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+    grid-template-columns: repeat(3, minmax(200px, 1fr));
     gap: 20px;
+    justify-content: center;
+    align-items: center;
 }
-
 .cardHeading{
     height: 20px;
+    align-self: center;
+    font-size: 2rem;
 }
-
-
 
